@@ -1,6 +1,8 @@
 package dao
 
 import (
+	"github.com/Ligerlilly/todo-golang/filters"
+	"github.com/Ligerlilly/todo-golang/models"
 	olioDAO "github.com/rachoac/service-skeleton-go/olio/dao"
 )
 
@@ -15,7 +17,7 @@ func NewTodoItemDAO(connectionManager olioDAO.ConnectionProvider) *TodoItemDAO {
 	return &dao
 }
 
-func (td *TodoItemDAO) GetTodoItems(filter *filter.TodoItemFilter) ([]models.Todo, error) {
+func (td *TodoItemDAO) GetTodoItems(filter *filters.TodoItemFilter) ([]models.TodoItem, error) {
 	db := td.connectionManager.GetDb()
 
 	var filterConditions map[string]interface{} = make(map[string]interface{})

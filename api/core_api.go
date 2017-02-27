@@ -1,20 +1,22 @@
 package api
 
 import (
+	"github.com/Ligerlilly/todo-golang/dao"
+	"github.com/Ligerlilly/todo-golang/db"
+	"github.com/Ligerlilly/todo-golang/filters"
+	"github.com/Ligerlilly/todo-golang/models"
 	log "github.com/Sirupsen/logrus"
 	olioAPI "github.com/rachoac/service-skeleton-go/olio/api"
 	olioDAO "github.com/rachoac/service-skeleton-go/olio/dao"
-	"github.com/sim-works/sim-backend/db"
-	"github.com/thedataguild/faer/models"
 )
 
-type TodoAPIType interface {
-	GetTodos(accessContext *models.AccessContext, filter *filter.TodosFilter)
+type TodoItemAPIType interface {
+	GetTodoItems(accessContext *models.AccessContext, filter *filters.TodoItemFilter) ([]models.TodoItem, *olioAPI.Exception)
 }
 
 type CoreAPI struct {
 	olioAPI.OlioBaseCoreAPI
-	TodoAPI TodoAPIType
+	TodoItemAPI TodoItemAPIType
 }
 
 func NewCoreAPI() *CoreAPI {
@@ -24,7 +26,7 @@ func NewCoreAPI() *CoreAPI {
 	log.Info("Initializing database connection pool")
 	connectionManager := olioDAO.NewConnectionManager()
 	api.ConnectionManager = connectionManager
-	api.TodoAPI = NewTodoAPI(&api, dao.NewTodoDAO(connectionManager))
+	api.TodoItemAPI = NewTodoItemAPI(&api, dao.NewTodoItemDAO(connectionManager))
 
 	migrations := db.NewMigrationsContainer(connectionManager).GetMigrations()
 
