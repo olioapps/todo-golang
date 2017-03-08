@@ -6,24 +6,25 @@ import (
 	olioDAO "github.com/rachoac/service-skeleton-go/olio/dao"
 )
 
-type TodoItemDAO struct {
+type TodoItemsDAO struct {
 	BaseDAO
 }
 
-func NewTodoItemDAO(connectionManager olioDAO.ConnectionProvider) *TodoItemDAO {
-	dao := TodoItemDAO{
+func NewTodoItemsDAO(connectionManager olioDAO.ConnectionProvider) *TodoItemsDAO {
+	dao := TodoItemsDAO{
 		BaseDAO{connectionManager},
 	}
 	return &dao
 }
 
-func (td *TodoItemDAO) GetTodoItems(filter *filters.TodoItemFilter) ([]models.TodoItem, error) {
+func (td *TodoItemsDAO) GetTodoItems(filter *filters.TodoItemsFilter) ([]models.TodoItem, error) {
 	db := td.connectionManager.GetDb()
 
 	var filterConditions map[string]interface{} = make(map[string]interface{})
 
 	var results []models.TodoItem
 	db = db.Where(filterConditions)
+	db = db.Find(&results)
 
 	return results, db.Error
 }

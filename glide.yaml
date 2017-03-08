@@ -1,0 +1,4 @@
+package: github.com/Ligerlilly/todo-golang
+import:
+- package: github.com/Sirupsen/logrus
+- package: github.com/rachoac/service-skeleton-go

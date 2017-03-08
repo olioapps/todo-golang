@@ -10,13 +10,13 @@ import (
 	olioDAO "github.com/rachoac/service-skeleton-go/olio/dao"
 )
 
-type TodoItemAPIType interface {
-	GetTodoItems(accessContext *models.AccessContext, filter *filters.TodoItemFilter) ([]models.TodoItem, *olioAPI.Exception)
+type TodoItemsAPIType interface {
+	GetTodoItems(filter *filters.TodoItemsFilter) ([]models.TodoItem, *olioAPI.Exception)
 }
 
 type CoreAPI struct {
 	olioAPI.OlioBaseCoreAPI
-	TodoItemAPI TodoItemAPIType
+	TodoItemsAPI TodoItemsAPIType
 }
 
 func NewCoreAPI() *CoreAPI {
@@ -26,7 +26,7 @@ func NewCoreAPI() *CoreAPI {
 	log.Info("Initializing database connection pool")
 	connectionManager := olioDAO.NewConnectionManager()
 	api.ConnectionManager = connectionManager
-	api.TodoItemAPI = NewTodoItemAPI(&api, dao.NewTodoItemDAO(connectionManager))
+	api.TodoItemsAPI = NewTodoItemsAPI(&api, dao.NewTodoItemsDAO(connectionManager))
 
 	migrations := db.NewMigrationsContainer(connectionManager).GetMigrations()
 
