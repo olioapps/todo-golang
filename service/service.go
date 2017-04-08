@@ -1,9 +1,9 @@
 package service
 
 import (
-	"github.com/Ligerlilly/todo-golang/api"
-	"github.com/Ligerlilly/todo-golang/service/resources"
 	"github.com/gin-gonic/gin"
+	"github.com/ligerlilly/todo-golang/api"
+	"github.com/ligerlilly/todo-golang/service/resources"
 	"github.com/rachoac/service-skeleton-go/olio/service"
 	"github.com/rachoac/service-skeleton-go/olio/service/middleware"
 )
@@ -69,6 +69,7 @@ func NewTodoService(coreAPI api.CoreAPI) TodoService {
 		// resources
 		[]service.OlioResourceHandler{
 			resources.NewTodoItemsResource(&coreAPI),
+			resources.NewTodoListsResource(&coreAPI),
 		})
 
 	return todoService

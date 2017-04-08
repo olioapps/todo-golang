@@ -2,8 +2,6 @@ package filters
 
 import (
 	"time"
-
-	"github.com/thedataguild/faer/models"
 )
 
 type BaseTodoFilter struct {
@@ -17,12 +15,12 @@ type BaseTodoFilter struct {
 	Offset    int64
 	CountOnly bool
 
-	AccessingUserID            int64
-	AccessingUserIsSystemAdmin bool
+	// AccessingUserID            int64
+	// AccessingUserIsSystemAdmin bool
 }
 
-func (btf *BaseTodoFilter) SetAccessContext(accessContext *models.AccessContext) {
-	if accessContext.User != nil {
-		btf.AccessingUserID = accessContext.User.ID
-	}
-}
+// func (btf *BaseTodoFilter) SetAccessContext(accessContext *models.AccessContext) {
+// 	if accessContext.User != nil {
+// 		btf.AccessingUserID = accessContext.User.ID
+// 	}
+// }

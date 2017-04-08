@@ -8,25 +8,25 @@ import (
 	olioMiddleware "github.com/rachoac/service-skeleton-go/olio/service/middleware"
 )
 
-type TodoItemsResource struct {
+type TodoListsResource struct {
 	BaseTodoResource
 	coreAPI *api.CoreAPI
 }
 
-func NewTodoItemsResource(coreAPI *api.CoreAPI) *TodoItemsResource {
-	obj := TodoItemsResource{}
+func NewTodoListsResource(coreAPI *api.CoreAPI) *TodoListsResource {
+	obj := TodoListsResource{}
 	obj.coreAPI = coreAPI
 	return &obj
 }
 
-func (resource TodoItemsResource) Init(e *gin.Engine, whiteList *olioMiddleware.WhiteList) {
-	log.Debug("Setting up todo items resource")
+func (resource TodoListsResource) Init(e *gin.Engine, whiteList *olioMiddleware.WhiteList) {
+	log.Debug("Setting up todo lists resource")
 
-	e.GET("/api/v1/todo_items", resource.getTodoItems)
+	e.GET("/api/v1/todo_lists", resource.getTodoLists)
 }
 
-func (resource TodoItemsResource) getTodoItems(c *gin.Context) {
-	filter := filters.NewTodoItemsFilter()
+func (resource TodoListsResource) getTodoLists(c *gin.Context) {
+	filter := filters.NewTodoListsFilter()
 	err := resource.parseFilter(c, filter.BaseTodoFilter)
 	if err != nil {
 		resource.ReturnError(c, 400, err.Error())
@@ -36,12 +36,11 @@ func (resource TodoItemsResource) getTodoItems(c *gin.Context) {
 		filter.Name = name
 	}
 
-	todoItems, exception := resource.coreAPI.TodoItemsAPI.GetTodoItems(filter)
+	todoLists, exception := resource.coreAPI.TodoListsAPI.GetTodoLists(filter)
 	if exception != nil {
 		resource.ReturnError(c, exception.ErrorCode, exception.Err)
 		return
 	}
 
-	resource.ReturnJSON(c, 200, todoItems)
-
+	resource.ReturnJSON(c, 200, todoLists)
 }

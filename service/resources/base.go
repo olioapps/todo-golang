@@ -3,7 +3,7 @@ package resources
 import (
 	"errors"
 
-	"github.com/Ligerlilly/todo-golang/filters"
+	"github.com/ligerlilly/todo-golang/filters"
 	"github.com/gin-gonic/gin"
 	olioResources "github.com/rachoac/service-skeleton-go/olio/service/resources"
 )

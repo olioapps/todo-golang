@@ -1,11 +1,11 @@
 package api
 
 import (
-	"github.com/Ligerlilly/todo-golang/dao"
-	"github.com/Ligerlilly/todo-golang/filters"
-	"github.com/Ligerlilly/todo-golang/models"
+	"github.com/ligerlilly/todo-golang/dao"
+	"github.com/ligerlilly/todo-golang/filters"
+	"github.com/ligerlilly/todo-golang/models"
+	log "github.com/Sirupsen/logrus"
 	olioAPI "github.com/rachoac/service-skeleton-go/olio/api"
-	"github.com/siddontang/go/log"
 )
 
 type TodoItemsAPI struct {

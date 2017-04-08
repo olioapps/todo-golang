@@ -3,8 +3,8 @@ package main
 import (
 	"time"
 
-	"github.com/Ligerlilly/todo-golang/api"
-	"github.com/Ligerlilly/todo-golang/service"
+	"github.com/ligerlilly/todo-golang/api"
+	"github.com/ligerlilly/todo-golang/service"
 )
 
 func main() {

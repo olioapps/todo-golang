@@ -70,16 +70,6 @@ imports:
   subpackages:
   - assert
   - mock
-- name: github.com/thedataguild/faer
-  version: 34dda17c9b58e5fac406e01e409c3ebd54244270
-  subpackages:
-  - models
-  - api
-  - api/twilio
-  - dao
-  - db
-  - filters
-  - util
 - name: golang.org/x/crypto
   version: 728b753d0135da6801d45a38e6f43ff55779c5c2
   subpackages:
