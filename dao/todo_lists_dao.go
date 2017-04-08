@@ -35,15 +35,12 @@ func (tld *TodoListsDAO) GetTodoLists(filter *filters.TodoListsFilter) ([]models
 		todoItemFilter := filters.NewTodoItemsFilter()
 		todoItemFilter.TodoListID = list.ID
 		todoItems, err := todoItemsDAO.GetTodoItems(todoItemFilter)
-		log.Infof("=================  %v", todoItems)
 		if err != nil {
 			log.Error("Failed to get todoItems for list ID", list.ID, err)
 		}
 
 		todoLists[i].TodoItems = todoItems
 	}
-
-	log.Infof("todoLists=================  %+v", todoLists)
 
 	return todoLists, db.Error
 }
