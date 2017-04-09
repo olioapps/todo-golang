@@ -33,7 +33,13 @@ func (s *server) ListTodos(context.Context, *google_protobuf.Empty) (*TodoList, 
 		return nil, err
 	}
 
-	list := &TodoList{Name: todoLists[0].Name}
+	var todos []*TodoItem
+	for _, todoItem := range todoLists[0].TodoItems {
+		todo := TodoItem{Name: todoItem.Name}
+		todos = append(todos, &todo)
+	}
+
+	list := &TodoList{Name: todoLists[0].Name, Todos: todos}
 	return list, nil
 }
 
