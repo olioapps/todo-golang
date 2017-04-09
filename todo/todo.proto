@@ -1,0 +1,19 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+// The greeting service definition.
+service DoSomething {
+  // Sends a greeting
+  rpc AddTodoItem (TodoItem) returns (google.protobuf.Empty) {}
+  rpc ListTodos (google.protobuf.Empty) returns ( TodoList) {}
+}
+
+message TodoItem {
+  string name = 1;
+}
+
+message TodoList {
+  string name = 1;
+	repeated TodoItem todos = 2;
+}
+
+

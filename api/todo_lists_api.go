@@ -17,6 +17,7 @@ func NewTodoListsAPI(coreAPI *CoreAPI, dao *dao.TodoListsDAO) *TodoListsAPI {
 	todoListsAPI := TodoListsAPI{}
 	todoListsAPI.applicationContext = coreAPI
 	todoListsAPI.dao = dao
+
 	return &todoListsAPI
 }
 
