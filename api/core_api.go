@@ -8,6 +8,7 @@ import (
 	"github.com/olioapps/todo-golang/models"
 	olioAPI "github.com/olioapps/service-skeleton-go/olio/api"
 	olioDAO "github.com/olioapps/service-skeleton-go/olio/dao"
+	olioUtil "github.com/olioapps/service-skeleton-go/olio/util"
 )
 
 type TodoItemsAPIType interface {
@@ -26,6 +27,11 @@ type CoreAPI struct {
 
 func NewCoreAPI() *CoreAPI {
 	log.Info("Initializing todo core api")
+
+	connectionString := olioUtil.GetEnv("DB_CONNECTION_STRING", "")
+	if connectionString == "" {
+		panic("No DB_CONNECTION_STRING (eg. username:password@/databasename?parseTime=true) provided; cannot start service")
+	}
 
 	api := CoreAPI{}
 	log.Info("Initializing database connection pool")
