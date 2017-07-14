@@ -2,10 +2,10 @@ package api
 
 import (
 	log "github.com/Sirupsen/logrus"
-	"github.com/ligerlilly/todo-golang/dao"
-	"github.com/ligerlilly/todo-golang/filters"
-	"github.com/ligerlilly/todo-golang/models"
-	olioAPI "github.com/rachoac/service-skeleton-go/olio/api"
+	"github.com/olioapps/todo-golang/dao"
+	"github.com/olioapps/todo-golang/filters"
+	"github.com/olioapps/todo-golang/models"
+	olioAPI "github.com/olioapps/service-skeleton-go/olio/api"
 )
 
 type TodoListsAPI struct {
@@ -17,7 +17,6 @@ func NewTodoListsAPI(coreAPI *CoreAPI, dao *dao.TodoListsDAO) *TodoListsAPI {
 	todoListsAPI := TodoListsAPI{}
 	todoListsAPI.applicationContext = coreAPI
 	todoListsAPI.dao = dao
-
 	return &todoListsAPI
 }
 
