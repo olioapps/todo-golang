@@ -1,9 +1,9 @@
 package dao
 
 import (
-	"github.com/ligerlilly/todo-golang/filters"
-	"github.com/ligerlilly/todo-golang/models"
-	olioDAO "github.com/rachoac/service-skeleton-go/olio/dao"
+	"github.com/olioapps/todo-golang/filters"
+	"github.com/olioapps/todo-golang/models"
+	olioDAO "github.com/olioapps/service-skeleton-go/olio/dao"
 )
 
 type TodoItemsDAO struct {

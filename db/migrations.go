@@ -2,8 +2,8 @@ package db
 
 import (
 	log "github.com/Sirupsen/logrus"
-	olioDAO "github.com/rachoac/service-skeleton-go/olio/dao"
-	olioDb "github.com/rachoac/service-skeleton-go/olio/db"
+	olioDAO "github.com/olioapps/service-skeleton-go/olio/dao"
+	olioDb "github.com/olioapps/service-skeleton-go/olio/db"
 )
 
 type MigrationsContainer struct {

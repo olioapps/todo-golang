@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	"github.com/jinzhu/gorm"
-	olioDAO "github.com/rachoac/service-skeleton-go/olio/dao"
+	olioDAO "github.com/olioapps/service-skeleton-go/olio/dao"
 )
 
 type BaseDAO struct {

@@ -1,4 +1,4 @@
-package: github.com/ligerlilly/todo-golang
+package: github.com/olioapps/todo-golang
 import:
 - package: github.com/Sirupsen/logrus
-- package: github.com/rachoac/service-skeleton-go
+- package: github.com/olioapps/service-skeleton-go

@@ -3,9 +3,9 @@ package resources
 import (
 	"errors"
 
-	"github.com/ligerlilly/todo-golang/filters"
+	"github.com/olioapps/todo-golang/filters"
 	"github.com/gin-gonic/gin"
-	olioResources "github.com/rachoac/service-skeleton-go/olio/service/resources"
+	olioResources "github.com/olioapps/service-skeleton-go/olio/service/resources"
 )
 
 type BaseTodoResource struct {

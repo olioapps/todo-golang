@@ -3,9 +3,9 @@ package resources
 import (
 	log "github.com/Sirupsen/logrus"
 	"github.com/gin-gonic/gin"
-	"github.com/ligerlilly/todo-golang/api"
-	"github.com/ligerlilly/todo-golang/filters"
-	olioMiddleware "github.com/rachoac/service-skeleton-go/olio/service/middleware"
+	"github.com/olioapps/todo-golang/api"
+	"github.com/olioapps/todo-golang/filters"
+	olioMiddleware "github.com/olioapps/service-skeleton-go/olio/service/middleware"
 )
 
 type TodoItemsResource struct {
